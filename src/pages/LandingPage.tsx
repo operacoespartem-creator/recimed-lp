@@ -176,7 +176,7 @@ export default function LandingPage() {
         <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-15" style={{ background: "radial-gradient(circle, #0099cc, transparent)" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10" style={{ background: "radial-gradient(circle, #ffffff, transparent)" }} />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-32">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-16 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
