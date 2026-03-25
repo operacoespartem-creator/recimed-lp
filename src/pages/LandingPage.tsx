@@ -18,7 +18,7 @@ import {
   BrainCog,
   AudioLines,
   Apple,
-  Accessibility,
+  Hand,
   ChevronRight,
   Phone,
   MessageCircle,
@@ -176,7 +176,7 @@ export default function LandingPage() {
         <div className="absolute bottom-20 right-10 w-80 h-80 rounded-full opacity-15" style={{ background: "radial-gradient(circle, #0099cc, transparent)" }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-10" style={{ background: "radial-gradient(circle, #ffffff, transparent)" }} />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-16 md:py-32">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-10 md:py-32">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -442,10 +442,10 @@ export default function LandingPage() {
               { icon: BrainCog, name: "Psicologia", desc: "Com horário agendado", color: "#7c3aed" },
               { icon: AudioLines, name: "Fonoaudiologia", desc: "Com horário agendado", color: "#0891b2" },
               { icon: Apple, name: "Nutrição", desc: "Com horário agendado", color: "#16a34a" },
-              { icon: Accessibility, name: "Terapia Ocupacional", desc: "Com horário agendado", color: "#ea580c" },
+              { icon: Hand, name: "Terapia Ocupacional", desc: "Com horário agendado", color: "#ea580c" },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#006994]/8">
+                <div className="glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#006994]/8 h-full">
                   <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: `${item.color}18` }}>
                     <item.icon className="w-7 h-7" style={{ color: item.color }} />
                   </div>
@@ -489,9 +489,9 @@ export default function LandingPage() {
                 "Stellantis", "Postal Saúde", "Bacen", "EXMED", "Saúde Caixa",
                 "CompesaPrev", "AMEPE-CAMPE", "GEAP",
               ].map((plano, i) => (
-                <div key={i} className="glass-card rounded-xl px-4 py-3 border border-[#006994]/10 flex items-center justify-center gap-2">
+                <div key={i} className="glass-card rounded-xl px-3 py-3 border border-[#006994]/10 flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#00a896] flex-shrink-0" />
-                  <span className="text-sm font-medium text-gray-700">{plano}</span>
+                  <span className="text-sm font-medium text-gray-700 text-left">{plano}</span>
                 </div>
               ))}
               <div className="glass-card rounded-xl px-4 py-3 border border-[#006994]/10 flex items-center justify-center gap-2 bg-[#006994]/5">
@@ -509,7 +509,7 @@ export default function LandingPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
-            <WhatsAppButton size="large">
+            <WhatsAppButton>
               Agende agora pelo WhatsApp
             </WhatsAppButton>
           </AnimatedSection>

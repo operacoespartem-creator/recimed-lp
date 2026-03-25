@@ -209,7 +209,13 @@ html {
 }
 
 .animate-scroll-reviews {
-  animation: scroll-reviews 40s linear infinite;
+  animation: scroll-reviews 20s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .animate-scroll-reviews {
+    animation: scroll-reviews 40s linear infinite;
+  }
 }
 
 .animate-scroll-reviews:hover {
