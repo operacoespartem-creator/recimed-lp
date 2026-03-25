@@ -95,8 +95,8 @@ export default function LandingPage() {
 
       {/* NAVBAR */}
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-          scrollY > 50 ? "liquid-glass-white shadow-md" : "bg-transparent"
+        className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+          scrollY > 50 ? "top-0 liquid-glass-white shadow-md" : "md:top-0 -top-full bg-transparent"
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
