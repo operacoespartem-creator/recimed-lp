@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import {
-  MessageCircle,
   MapPin,
   Clock,
   ChevronDown,
@@ -16,14 +15,24 @@ import {
   Shield,
   BookOpen,
   ExternalLink,
-  Brain,
-  Mic2,
-  Salad,
-  HandHeart,
+  BrainCog,
+  AudioLines,
+  Apple,
+  Accessibility,
   ChevronRight,
+  Phone,
+  MessageCircle,
 } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5581999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Recimed!";
+function WhatsAppIcon({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  );
+}
+
+const WHATSAPP_URL = "https://wa.me/558130332200?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Recimed!";
 
 function AnimatedSection({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
   const ref = useRef(null);
@@ -54,7 +63,7 @@ function WhatsAppButton({ children, className = "", size = "default" }: { childr
         ${className}
       `}
     >
-      <MessageCircle className={size === "large" ? "w-6 h-6" : "w-5 h-5"} />
+      <WhatsAppIcon className={size === "large" ? "w-6 h-6" : "w-5 h-5"} />
       {children}
     </a>
   );
@@ -81,7 +90,7 @@ export default function LandingPage() {
         className="fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] hover:bg-[#1fb855] rounded-full flex items-center justify-center shadow-2xl whatsapp-pulse transition-transform hover:scale-110 active:scale-95"
         aria-label="Falar no WhatsApp"
       >
-        <MessageCircle className="w-8 h-8 text-white" />
+        <WhatsAppIcon className="w-8 h-8 text-white" />
       </a>
 
       {/* NAVBAR */}
@@ -91,23 +100,25 @@ export default function LandingPage() {
         }`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#006994] flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-sm">R</span>
-            </div>
-            <span className="text-xl font-bold text-[#006994]">Recimed</span>
-          </div>
+          <a href="#" className="flex items-center">
+            <img src="/logo-recimed.jpg" alt="Recimed - Soluções em Saúde" className="h-12 w-auto" />
+          </a>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#004d6b]">
             <a href="#servicos" className="hover:text-[#006994] transition-colors">Serviços</a>
             <a href="#diferenciais" className="hover:text-[#006994] transition-colors">Diferenciais</a>
             <a href="#equipe" className="hover:text-[#006994] transition-colors">Equipe</a>
             <a href="#planos" className="hover:text-[#006994] transition-colors">Planos</a>
+            <a href="tel:8130332200" className="flex items-center gap-1.5 hover:text-[#006994] transition-colors">
+              <Phone className="w-4 h-4" />
+              (81) 3033-2200
+            </a>
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#006994] text-white px-5 py-2 rounded-full hover:bg-[#004d6b] transition-all duration-200 hover:scale-105"
+              className="inline-flex items-center gap-2 bg-[#006994] text-white px-5 py-2 rounded-full hover:bg-[#004d6b] transition-all duration-200 hover:scale-105"
             >
+              <WhatsAppIcon className="w-4 h-4" />
               Agendar
             </a>
           </nav>
@@ -134,11 +145,19 @@ export default function LandingPage() {
               </a>
             ))}
             <a
+              href="tel:8130332200"
+              className="flex items-center justify-center gap-2 text-[#004d6b] font-medium py-2 border-b border-gray-100"
+            >
+              <Phone className="w-4 h-4" />
+              (81) 3033-2200
+            </a>
+            <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#006994] text-white text-center py-3 rounded-full font-semibold mt-2"
+              className="flex items-center justify-center gap-2 bg-[#006994] text-white text-center py-3 rounded-full font-semibold mt-2"
             >
+              <WhatsAppIcon className="w-4 h-4" />
               Agendar pelo WhatsApp
             </a>
           </div>
@@ -162,10 +181,16 @@ export default function LandingPage() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 liquid-glass rounded-full px-5 py-2 mb-8 text-white/90 text-sm font-medium"
+            className="flex flex-wrap justify-center gap-3 mb-8"
           >
-            <Activity className="w-4 h-4 text-[#00a896]" />
-            Atendemos em todo o Estado de Pernambuco
+            <span className="inline-flex items-center gap-2 liquid-glass rounded-full px-5 py-2 text-white/90 text-sm font-medium">
+              <MapPin className="w-4 h-4 text-[#00d4b1]" />
+              Recife-PE | Empresarial RioMar Trade Center
+            </span>
+            <a href="tel:8130332200" className="inline-flex items-center gap-2 liquid-glass rounded-full px-5 py-2 text-white/90 text-sm font-medium hover:bg-white/20 transition-colors">
+              <Phone className="w-4 h-4 text-[#00d4b1]" />
+              (81) 3033-2200
+            </a>
           </motion.div>
 
           <motion.h1
@@ -231,6 +256,28 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* STATS BAR */}
+      <section className="py-8 px-4 sm:px-6 bg-white border-b border-gray-100">
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { icon: Award, value: "Desde 2004", label: "No mercado" },
+              { icon: Users, value: "500.000+", label: "Consultas realizadas" },
+              { icon: Building2, value: "Clínica e Domiciliar", label: "Modalidades" },
+              { icon: Shield, value: "14+", label: "Planos aceitos" },
+            ].map((item, i) => (
+              <AnimatedSection key={i} delay={i * 0.1}>
+                <div className="flex flex-col items-center gap-2">
+                  <item.icon className="w-6 h-6 text-[#006994]" />
+                  <span className="text-lg sm:text-xl font-bold text-[#006994]">{item.value}</span>
+                  <span className="text-xs sm:text-sm text-gray-500">{item.label}</span>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* IDENTIFICAÇÃO — Dores section */}
       <section className="py-20 px-4 sm:px-6" style={{ background: "linear-gradient(180deg, #f0f8ff 0%, #ffffff 100%)" }}>
         <div className="max-w-5xl mx-auto text-center">
@@ -283,12 +330,12 @@ export default function LandingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Clínica */}
             <AnimatedSection delay={0.1}>
-              <div className="glass-card rounded-3xl p-8 h-full border border-[#006994]/10">
+              <div className="glass-card rounded-3xl p-8 h-full border border-[#006994]/10 flex flex-col">
                 <div className="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style={{ background: "linear-gradient(135deg, #006994, #0099cc)" }}>
                   <Building2 className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2"><ChevronRight className="w-6 h-6 text-[#006994]" /> Atendimento na Clínica</h3>
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-1">
                   {[
                     "Estrutura completa",
                     "Equipe especializada",
@@ -310,12 +357,12 @@ export default function LandingPage() {
 
             {/* Domiciliar */}
             <AnimatedSection delay={0.2}>
-              <div className="glass-card rounded-3xl p-8 h-full border border-[#00a896]/20">
+              <div className="glass-card rounded-3xl p-8 h-full border border-[#00a896]/20 flex flex-col">
                 <div className="w-14 h-14 rounded-2xl mb-6 flex items-center justify-center" style={{ background: "linear-gradient(135deg, #00a896, #006994)" }}>
                   <Home className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-800 mb-4 flex items-center gap-2"><ChevronRight className="w-6 h-6 text-[#00a896]" /> Atendimento Domiciliar</h3>
-                <ul className="space-y-3">
+                <ul className="space-y-3 flex-1">
                   {[
                     "Conforto e segurança no seu lar",
                     "Ideal para pacientes com dificuldade de locomoção",
@@ -392,10 +439,10 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {[
-              { icon: Brain, name: "Psicologia", desc: "Com horário agendado", color: "#7c3aed" },
-              { icon: Mic2, name: "Fonoaudiologia", desc: "Com horário agendado", color: "#0891b2" },
-              { icon: Salad, name: "Nutrição", desc: "Com horário agendado", color: "#16a34a" },
-              { icon: HandHeart, name: "Terapia Ocupacional", desc: "Com horário agendado", color: "#ea580c" },
+              { icon: BrainCog, name: "Psicologia", desc: "Com horário agendado", color: "#7c3aed" },
+              { icon: AudioLines, name: "Fonoaudiologia", desc: "Com horário agendado", color: "#0891b2" },
+              { icon: Apple, name: "Nutrição", desc: "Com horário agendado", color: "#16a34a" },
+              { icon: Accessibility, name: "Terapia Ocupacional", desc: "Com horário agendado", color: "#ea580c" },
             ].map((item, i) => (
               <AnimatedSection key={i} delay={i * 0.1}>
                 <div className="glass-card rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-[#006994]/8">
@@ -421,7 +468,7 @@ export default function LandingPage() {
 
       {/* PLANOS DE SAÚDE */}
       <section id="planos" className="py-20 px-4 sm:px-6" style={{ background: "linear-gradient(180deg, #f0f8ff 0%, #e8f5fd 100%)" }}>
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           <AnimatedSection>
             <div className="inline-flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl bg-[#006994] flex items-center justify-center">
@@ -435,21 +482,31 @@ export default function LandingPage() {
             <p className="text-gray-500 text-lg mb-10">Mais facilidade para iniciar o seu tratamento</p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            {[
-              { icon: CheckCircle2, title: "Sem custos para você", desc: "Utilize seu plano de saúde sem preocupações adicionais" },
-              { icon: Shield, title: "Mais facilidade", desc: "Processo simples para iniciar seu tratamento com cobertura do plano" },
-              { icon: Heart, title: "Continuidade no cuidado", desc: "Acompanhamento contínuo garantido pelo seu convênio" },
-            ].map((item, i) => (
-              <AnimatedSection key={i} delay={i * 0.1}>
-                <div className="glass-card rounded-2xl p-6 border border-[#006994]/10">
-                  <item.icon className="w-10 h-10 text-[#006994] mx-auto mb-4" />
-                  <h3 className="font-semibold text-gray-800 mb-2">{item.title}</h3>
-                  <p className="text-gray-500 text-sm">{item.desc}</p>
+          <AnimatedSection delay={0.1}>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 mb-12">
+              {[
+                "SulAmérica", "Luminar", "Cassi", "Amil", "Camed",
+                "Stellantis", "Postal Saúde", "Bacen", "EXMED", "Saúde Caixa",
+                "CompesaPrev", "AMEPE-CAMPE", "GEAP",
+              ].map((plano, i) => (
+                <div key={i} className="glass-card rounded-xl px-4 py-3 border border-[#006994]/10 flex items-center justify-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#00a896] flex-shrink-0" />
+                  <span className="text-sm font-medium text-gray-700">{plano}</span>
                 </div>
-              </AnimatedSection>
-            ))}
-          </div>
+              ))}
+              <div className="glass-card rounded-xl px-4 py-3 border border-[#006994]/10 flex items-center justify-center gap-2 bg-[#006994]/5">
+                <span className="text-sm font-semibold text-[#006994]">e outros</span>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.2}>
+            <div className="glass-card rounded-2xl p-6 border border-[#006994]/10 mb-10 max-w-2xl mx-auto">
+              <p className="text-gray-600">
+                Não encontrou o seu plano? <strong className="text-[#006994]">Entre em contato</strong> e verificamos a cobertura para o seu tratamento.
+              </p>
+            </div>
+          </AnimatedSection>
 
           <AnimatedSection delay={0.3}>
             <WhatsAppButton size="large">
@@ -460,8 +517,8 @@ export default function LandingPage() {
       </section>
 
       {/* AVALIAÇÕES DO GOOGLE */}
-      <section className="py-20 px-4 sm:px-6 bg-white">
-        <div className="max-w-5xl mx-auto">
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <AnimatedSection className="text-center mb-12">
             <span className="inline-block bg-[#e6f4fa] text-[#006994] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Depoimentos</span>
             <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-4">
@@ -474,44 +531,72 @@ export default function LandingPage() {
             </div>
             <p className="text-gray-500">Avaliações verificadas do Google</p>
           </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[
-              {
-                name: "Maria S.",
-                text: "Tratamento incrível! A equipe é extremamente profissional e o resultado foi além das minhas expectativas. Recuperei minha qualidade de vida!",
-                stars: 5,
-              },
-              {
-                name: "João P.",
-                text: "O atendimento domiciliar foi fundamental para minha recuperação pós-operatória. Muito cuidado e atenção em cada sessão.",
-                stars: 5,
-              },
-              {
-                name: "Ana C.",
-                text: "Dr. Régis é um profissional excepcional. A metodologia deles é única e os resultados são visíveis desde as primeiras sessões.",
-                stars: 5,
-              },
-            ].map((review, i) => (
-              <AnimatedSection key={i} delay={i * 0.15}>
-                <div className="glass-card rounded-2xl p-6 border border-[#006994]/8">
-                  <div className="flex gap-1 mb-3">
-                    {[...Array(review.stars)].map((_, j) => (
-                      <Star key={j} className="w-4 h-4 fill-[#FFB800] text-[#FFB800]" />
-                    ))}
-                  </div>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4 italic">"{review.text}"</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#006994] to-[#00a896] flex items-center justify-center text-white font-semibold text-sm">
-                      {review.name[0]}
-                    </div>
-                    <span className="font-semibold text-gray-700 text-sm">{review.name}</span>
-                  </div>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
         </div>
+
+        {(() => {
+          const reviews = [
+            {
+              name: "Angela Calumby",
+              text: "Inicialmente quero registrar o acolhimento do Dr. Regis que me apresentou a Recimed há alguns anos com aquela simpatia e gentileza. Eu só tenho a agradecer por todos os serviços prestados com muita eficiência. Sou uma cliente não apenas satisfeita, mas, sim, ENCANTADA com essa Clínica!",
+            },
+            {
+              name: "Isabelle Gonçalves",
+              text: "Clínica Maravilhosa! Desde a Recepção até as médicas e fisioterapeutas, muito atenciosas, educadas, profissionais. Um local super acolhedor e que realmente ajuda o paciente naquilo que ele precisa. Super recomendo!",
+            },
+            {
+              name: "Danielle Cristina",
+              text: "Faço terapia nessa clínica e gosto muito daqui. O ambiente é acolhedor, tranquilo e muito bem organizado. As pessoas são excelentes, sempre atenciosas, respeitosas e profissionais. Me sinto confortável e bem cuidada. Recomendo com certeza!",
+            },
+            {
+              name: "Elaine Barroca",
+              text: "Quero agradecer ao ótimo atendimento que tenho aqui na Recimed. Desde a maravilhosa recepção dada por Patrícia, à fisioterapia que faço atualmente com Luciana e Alice que é MARAVILHOSA. Vocês são incríveis!",
+            },
+            {
+              name: "Aline Camargo",
+              text: "Fiz o tratamento da minha bebê e fiquei encantada. Todos os profissionais são dedicados e o local é excelente. As sessões são pontuais. Indico muito!",
+            },
+            {
+              name: "Rodrigo Farias",
+              text: "Ótima clínica com um atendimento perfeitamente esplêndido. O melhor que encontramos tudo em um só lugar. Me sinto em casa sempre que vou lá. Faço fisioterapia lá e não me arrependo.",
+            },
+            {
+              name: "Ailin Coutinho",
+              text: "Tô fazendo minha fisioterapia e está melhorando meu processo de recuperação rumo às 100% melhorada. As profissionais da fisioterapia Eduarda e Luciana são excelentes profissionais!",
+            },
+            {
+              name: "Kamille Maciel",
+              text: "Equipe maravilhosa e atendimento excelente! As meninas da recepção são um amor!",
+            },
+          ];
+          const duplicated = [...reviews, ...reviews];
+          return (
+            <div className="relative">
+              <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10" />
+              <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10" />
+              <div className="flex gap-6 animate-scroll-reviews">
+                {duplicated.map((review, i) => (
+                  <div
+                    key={i}
+                    className="glass-card rounded-2xl p-6 border border-[#006994]/8 flex flex-col flex-shrink-0 w-[340px]"
+                  >
+                    <div className="flex gap-1 mb-3">
+                      {[...Array(5)].map((_, j) => (
+                        <Star key={j} className="w-4 h-4 fill-[#FFB800] text-[#FFB800]" />
+                      ))}
+                    </div>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 italic flex-1">"{review.text}"</p>
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-br from-[#006994] to-[#00a896] flex items-center justify-center text-white font-semibold text-sm">
+                        {review.name[0]}
+                      </div>
+                      <span className="font-semibold text-gray-700 text-sm">{review.name}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </section>
 
       {/* RESPONSÁVEL TÉCNICO */}
@@ -526,30 +611,32 @@ export default function LandingPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedSection delay={0.1}>
-              <div className="liquid-glass-strong rounded-3xl p-8 text-white">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-white/30 to-white/10 flex items-center justify-center text-white text-2xl font-bold border-2 border-white/30">
-                    R
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold">Régis Novaes</h3>
-                    <p className="text-white/70 text-sm">Fisioterapeuta • Fundador & CEO da Recimed</p>
+              <div className="liquid-glass-strong rounded-3xl overflow-hidden text-white">
+                <div className="flex justify-center pt-8 pb-4">
+                  <div className="w-40 h-40 rounded-full overflow-hidden border-4 border-[#00d4b1]/40 shadow-xl">
+                    <img src="/regis-novaes.jpg" alt="Dr. Régis Novaes" className="w-full h-full object-cover object-top" />
                   </div>
                 </div>
-                <ul className="space-y-3">
-                  {[
-                    "Atuação internacional (Brasil e Estados Unidos)",
-                    "Especialista em Fisioterapia Manual e Postural",
-                    "Especialista em Fisioterapia Cárdio-Respiratória",
-                    "No mercado desde 2004",
-                    "Mais de 500.000 consultas realizadas",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-white/80 text-sm">
-                      <CheckCircle2 className="w-5 h-5 text-[#00d4b1] flex-shrink-0 mt-0.5" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+                <div className="px-8 pb-8">
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl font-semibold">Régis Novaes</h3>
+                    <p className="text-white/70 text-sm">Fisioterapeuta | Fundador & CEO da Recimed</p>
+                  </div>
+                  <ul className="space-y-3">
+                    {[
+                      "Atuação internacional (Brasil e Estados Unidos)",
+                      "Especialista em Fisioterapia Manual e Postural",
+                      "Especialista em Fisioterapia Cárdio-Respiratória",
+                      "No mercado desde 2004",
+                      "Mais de 500.000 consultas realizadas",
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-white/80 text-sm">
+                        <CheckCircle2 className="w-5 h-5 text-[#00d4b1] flex-shrink-0 mt-0.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </AnimatedSection>
 
@@ -631,6 +718,29 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* EQUIPE */}
+      <section className="bg-white">
+        <div className="pt-20 pb-10 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <AnimatedSection className="text-center">
+              <span className="inline-block bg-[#e6f4fa] text-[#006994] text-sm font-semibold px-4 py-1.5 rounded-full mb-4">Nossa Equipe</span>
+              <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-4">
+                Uma equipe dedicada ao seu cuidado
+              </h2>
+            </AnimatedSection>
+          </div>
+        </div>
+        <AnimatedSection delay={0.2}>
+          <div className="w-full h-64 sm:h-80 lg:h-96 overflow-hidden">
+            <img
+              src="/equipe-recimed.jpg"
+              alt="Equipe Recimed"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+        </AnimatedSection>
+      </section>
+
       {/* AGENDE AGORA — Final CTA */}
       <section
         className="py-24 px-4 sm:px-6 text-center relative overflow-hidden"
@@ -663,11 +773,8 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
             <div>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-[#006994] flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">R</span>
-                </div>
-                <span className="text-xl font-bold">Recimed</span>
+              <div className="mb-4">
+                <img src="/logo-recimed.jpg" alt="Recimed - Soluções em Saúde" className="h-14 w-auto rounded-lg" />
               </div>
               <p className="text-white/60 text-sm leading-relaxed">
                 Fisioterapia especializada com foco em resultado. Cuidando da sua saúde com excelência.
@@ -676,7 +783,7 @@ export default function LandingPage() {
 
             <div>
               <h4 className="font-semibold mb-4 text-[#00d4b1]">Endereço</h4>
-              <div className="flex items-start gap-2 text-white/70 text-sm mb-2">
+              <div className="flex items-start gap-2 text-white/70 text-sm mb-4">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-[#00d4b1]" />
                 <div>
                   <p>Av. República do Líbano, 251</p>
@@ -685,6 +792,10 @@ export default function LandingPage() {
                   <p className="text-white/50 text-xs">(ao lado do Shopping RioMar)</p>
                 </div>
               </div>
+              <a href="tel:8130332200" className="flex items-center gap-2 text-white/70 text-sm hover:text-white transition-colors">
+                <Phone className="w-4 h-4 flex-shrink-0 text-[#00d4b1]" />
+                (81) 3033-2200
+              </a>
             </div>
 
             <div>
@@ -720,7 +831,7 @@ export default function LandingPage() {
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-[#25D366] hover:bg-[#1fb855] text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all hover:scale-105"
             >
-              <MessageCircle className="w-4 h-4" />
+              <WhatsAppIcon className="w-4 h-4" />
               Falar no WhatsApp
             </a>
           </div>
