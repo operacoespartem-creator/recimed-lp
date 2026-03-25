@@ -96,12 +96,12 @@ export default function LandingPage() {
       {/* NAVBAR */}
       <header
         className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
-          scrollY > 50 ? "top-0 liquid-glass-white shadow-md" : "md:top-0 -top-full bg-transparent"
+          scrollY > 50 ? "top-0 bg-white shadow-md" : "-top-full"
         }`}
       >
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex items-center justify-between">
           <a href="#" className="flex items-center">
-            <img src="/logo-recimed.jpg" alt="Recimed - Soluções em Saúde" className="h-12 w-auto" />
+            <img src="/logo-recimed.jpg" alt="Recimed - Soluções em Saúde" className="h-14 w-auto" />
           </a>
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-[#004d6b]">
             <a href="#servicos" className="hover:text-[#006994] transition-colors">Serviços</a>
