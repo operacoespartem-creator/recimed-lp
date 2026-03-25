@@ -202,9 +202,12 @@ export default function LandingPage() {
           >
             Fisioterapia especializada{" "}
             <em className="not-italic" style={{ fontFamily: "'Source Serif 4', serif", fontStyle: "italic", color: "rgba(255,255,255,0.85)" }}>
-              na clínica ou no conforto
+              na clínica
             </em>{" "}
-            da sua casa
+            <strong className="font-bold">ou no conforto</strong> da{" "}
+            <em className="not-italic" style={{ fontFamily: "'Source Serif 4', serif", fontStyle: "italic", color: "rgba(255,255,255,0.85)" }}>
+              sua casa
+            </em>
           </motion.h1>
 
           <motion.p
@@ -323,7 +326,7 @@ export default function LandingPage() {
               Fisioterapia especializada com foco em resultado
             </h2>
             <p className="text-gray-500 max-w-xl mx-auto text-lg italic" style={{ fontFamily: "'Source Serif 4', serif" }}>
-              Não é sobre onde você faz seu tratamento — é sobre como você evolui.
+              Não é sobre <strong className="font-bold">onde</strong> você faz seu tratamento — é sobre <strong className="font-bold">como</strong> você evolui.
             </p>
           </AnimatedSection>
 
@@ -393,7 +396,7 @@ export default function LandingPage() {
               Por que nossos pacientes evoluem mais rápido?
             </h2>
             <p className="text-white/70 text-lg italic" style={{ fontFamily: "'Source Serif 4', serif" }}>
-              Aqui, consulta tem um propósito.
+              Aqui, cada consulta tem um propósito.
             </p>
           </AnimatedSection>
 
@@ -627,8 +630,8 @@ export default function LandingPage() {
                       "Atuação internacional (Brasil e Estados Unidos)",
                       "Especialista em Fisioterapia Manual e Postural",
                       "Especialista em Fisioterapia Cárdio-Respiratória",
-                      "No mercado desde 2004",
-                      "Mais de 500.000 consultas realizadas",
+                      "Criador da Régis Scale",
+                      "Autor do Livro \"Frequência Ideal\"",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-3 text-white/80 text-sm">
                         <CheckCircle2 className="w-5 h-5 text-[#00d4b1] flex-shrink-0 mt-0.5" />
